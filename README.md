@@ -17,10 +17,10 @@ This project is a simple To-Do application that allows users to add, edit, delet
 
 ### All Tasks 
 ![all tasks](./src/assests/images/all_tasks.png)
-### Edit Tasks
-![Screenshot](./src/assests/images/edit.png)
 ### Completed Tasks
-![Screenshot](./src/assests/images/completed_task.png)
+![Screenshot](./src/assests/images/complete_tasks.png)
+### Active Tasks
+![Screenshot](./src/assests/images/active_tasks.png)
 
 ## Setup
 
