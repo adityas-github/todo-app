@@ -55,10 +55,8 @@ This project is a simple To-Do application that allows users to add, edit, delet
 3. **Delete a Task**: To delete a task, click on the trash icon next to the task.
 
 4. **Mark a Task as Completed**: To mark a task as completed, click on the checkbox next to the task. Clicking again will unmark the task.
-
-5. **Filter Tasks**: Use the filters on the sidebar to filter tasks based on their completion status. You can filter tasks to view all tasks, completed tasks, or active tasks.
-
-6. **Enjoy Organizing Your Tasks!**
+   
+5. **Enjoy Organizing Your Tasks!**
 
 ## Credits
 
