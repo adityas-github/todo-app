@@ -1,97 +1,173 @@
+:root {
+  --primary-color: #c14df7; /* Keeping this as the main highlight color */
+  --primary-dark: #a03fc2; /* Darker shade for active states */
+  --accent-color: #383838; /* Darker accent for better contrast */
+  --text-color: #ffffff; /* White text for better readability */
+  --bg-color: #1a1a1a; /* Background color remains the same */
+  --container-bg: #2b2b2b; /* Slightly darker for better contrast */
+  --hover-color: #505050; /* Darker hover color for better visibility */
+  --delete-color: #ff4d4d; /* Brighter red for delete button */
+  --no-tasks-color: #b0b0b0; /* Lighter gray for no tasks message */
+}
+
 body {
   font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
+  background-color: var(--bg-color);
   margin: 0;
   padding: 0;
+  color: var(--text-color);
 }
 
 .App {
-  max-width: 400px;
+  max-width: 600px;
   margin: 0 auto;
   padding: 20px;
   border-radius: 8px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: var(--container-bg);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  margin-top: 200px;
 }
 
-h1 {
-  text-align: center;
-  color: #007bff;
-}
-
-.AddTask {
+.HeaderContainer {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 20px;
 }
 
-.AddTask input {
+h1 {
+  color: var(--primary-color);
+  margin: 0;
+}
+
+.ProgressBarContainer {
+  margin-left: 20px;
+}
+
+.ProgressCircle {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.ProgressCircleBg {
+  fill: none;
+  stroke: var(--accent-color);
+  stroke-width: 8;
+}
+
+.ProgressCircleFill {
+  fill: none;
+  stroke: var(--primary-color);
+  stroke-width: 8;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  transition: stroke-dasharray 0.5s;
+}
+
+.ProgressText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.AddTaskContainer {
+  display: flex;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.AddTaskInput {
   flex: 1;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--accent-color);
   border-radius: 4px 0 0 4px;
   font-size: 16px;
   outline: none;
+  background-color: var(--container-bg);
+  color: var(--text-color);
 }
 
-.AddTask .AddButton {
+.AddButton {
   padding: 10px 15px;
-  background-color: #007bff;
-  color: #fff;
+  background-color: var(--primary-color);
+  color: var(--bg-color);
   border: none;
   border-radius: 0 4px 4px 0;
   cursor: pointer;
   font-size: 16px;
+  font-weight: bold;
 }
 
-.Tabs {
+.TabsContainer {
   display: flex;
   justify-content: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
-.Tabs button {
+.TabButton {
+  flex: 1;
   margin: 0 5px;
   padding: 10px 15px;
-  background-color: #007bff;
-  color: #fff;
+  background-color: var(--primary-color);
+  color: var(--bg-color);
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s;
+  font-weight: bold;
 }
 
-.Tabs button.active {
-  background-color: #0056b3;
+.TabButton.active {
+  background-color: var(--primary-dark);
 }
 
 .TaskList {
   list-style-type: none;
   padding: 0;
+  margin: 0;
+  width: 100%;
 }
 
-.TaskList li {
+.TaskItem {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 15px;
   margin-bottom: 10px;
   border-radius: 8px;
-  background-color: #f9f9f9;
+  background-color: var(--accent-color);
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-.TaskList li.completed {
-  background-color: #c0e5f3;
+.TaskItem.completed {
+  background-color: var(--primary-dark);
 }
 
-.TaskList li:hover {
-  background-color: #e9ecef;
+.TaskItem:hover {
+  background-color: var(--hover-color);
 }
 
-.TaskList input[type="checkbox"] {
+.TaskCheckbox {
   margin-right: 10px;
+}
+
+.TaskText {
+  flex: 1;
 }
 
 .TaskButtons {
@@ -100,4 +176,59 @@ h1 {
 
 .TaskButtons button {
   margin-left: 5px;
+}
+
+.EditTaskContainer {
+  display: flex;
+  align-items: center;
+}
+
+.EditTaskInput {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid var(--accent-color);
+  border-radius: 4px;
+  font-size: 16px;
+  outline: none;
+  background-color: var(--container-bg);
+  color: var(--text-color);
+}
+
+.SaveButton {
+  padding: 5px 10px;
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+.EditButton,
+.DeleteButton {
+  padding: 5px 10px;
+  background-color: transparent;
+  color: var(--primary-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.DeleteButton {
+  color: var(--delete-color);
+}
+
+.EditButton:hover,
+.DeleteButton:hover {
+  background-color: var(--hover-color);
+}
+
+.NoTasksMessage {
+  text-align: center;
+  color: var(--no-tasks-color);
+  font-style: italic;
+  margin-top: 20px;
 }
