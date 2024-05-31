@@ -28,4 +28,4 @@ This project is a simple To-Do application that allows users to add, edit, delet
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/adityas-github/todo-app.git
